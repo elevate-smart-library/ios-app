@@ -9,19 +9,62 @@
 /* Begin PBXBuildFile section */
 		F1DC440A215604D100F12519 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC4409215604D100F12519 /* AppDelegate.swift */; };
 		F1DC440C215604D100F12519 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC440B215604D100F12519 /* ViewController.swift */; };
-		F1DC440F215604D100F12519 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1DC440D215604D100F12519 /* Main.storyboard */; };
 		F1DC4411215604D300F12519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1DC4410215604D300F12519 /* Assets.xcassets */; };
 		F1DC4414215604D300F12519 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1DC4412215604D300F12519 /* LaunchScreen.storyboard */; };
+		F1DC441D2156070300F12519 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC441C2156070300F12519 /* User.swift */; };
+		F1DC44232156087E00F12519 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC44212156087E00F12519 /* MainViewController.swift */; };
+		F1DC44242156087E00F12519 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1DC44222156087E00F12519 /* MainViewController.xib */; };
+		F1DC442B2156182800F12519 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DC4426215617E800F12519 /* Alamofire.framework */; };
+		F1DC442D2156184E00F12519 /* LLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC442C2156184E00F12519 /* LLService.swift */; };
+		F1DC442F2156763400F12519 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1DC4426215617E800F12519 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F1DC4432215677D900F12519 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC4431215677D900F12519 /* Book.swift */; };
+		F1DC443421567D2700F12519 /* LLService+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC443321567D2700F12519 /* LLService+Test.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F1DC44302156763500F12519 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F1DC442F2156763400F12519 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F1DC4406215604D100F12519 /* LittleLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DC4409215604D100F12519 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1DC440B215604D100F12519 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F1DC440E215604D100F12519 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1DC4410215604D300F12519 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1DC4413215604D300F12519 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1DC4415215604D300F12519 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1DC441C2156070300F12519 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F1DC44212156087E00F12519 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F1DC44222156087E00F12519 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		F1DC4426215617E800F12519 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		F1DC442C2156184E00F12519 /* LLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLService.swift; sourceTree = "<group>"; };
+		F1DC4431215677D900F12519 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		F1DC443321567D2700F12519 /* LLService+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LLService+Test.swift"; sourceTree = "<group>"; };
+		F1DC4438215680A300F12519 /* Aileron-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		F1DC4439215680A300F12519 /* Aileron-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		F1DC443A215680A300F12519 /* Aileron-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Bold.ttf"; sourceTree = "<group>"; };
+		F1DC443B215680A300F12519 /* Aileron-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Thin.ttf"; sourceTree = "<group>"; };
+		F1DC443C215680A300F12519 /* Aileron-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-SemiBold.ttf"; sourceTree = "<group>"; };
+		F1DC443D215680A300F12519 /* Aileron-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-LightItalic.ttf"; sourceTree = "<group>"; };
+		F1DC443E215680A300F12519 /* Aileron-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Italic.ttf"; sourceTree = "<group>"; };
+		F1DC443F215680A300F12519 /* Aileron-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-BlackItalic.ttf"; sourceTree = "<group>"; };
+		F1DC4440215680A400F12519 /* Aileron-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Light.ttf"; sourceTree = "<group>"; };
+		F1DC4441215680A400F12519 /* Aileron-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Black.ttf"; sourceTree = "<group>"; };
+		F1DC4442215680A400F12519 /* Aileron-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Heavy.ttf"; sourceTree = "<group>"; };
+		F1DC4443215680A400F12519 /* Aileron-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-Regular.ttf"; sourceTree = "<group>"; };
+		F1DC4444215680A400F12519 /* Aileron-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-ThinItalic.ttf"; sourceTree = "<group>"; };
+		F1DC4445215680A400F12519 /* Aileron-UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLight.ttf"; sourceTree = "<group>"; };
+		F1DC4446215680A400F12519 /* Aileron-UltraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-UltraLightItalic.ttf"; sourceTree = "<group>"; };
+		F1DC4447215680A400F12519 /* Aileron-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aileron-BoldItalic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1DC442B2156182800F12519 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,10 +82,16 @@
 		F1DC43FD215604D100F12519 = {
 			isa = PBXGroup;
 			children = (
+				F1DC44292156180900F12519 /* Resource */,
+				F1DC4428215617FC00F12519 /* Client */,
+				F1DC441B215606F000F12519 /* Model */,
 				F1DC4408215604D100F12519 /* LittleLibrary */,
 				F1DC4407215604D100F12519 /* Products */,
+				F1DC442A2156182800F12519 /* Frameworks */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		F1DC4407215604D100F12519 /* Products */ = {
 			isa = PBXGroup;
@@ -54,14 +104,80 @@
 		F1DC4408215604D100F12519 /* LittleLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				F1DC441E2156085100F12519 /* MainViewController */,
 				F1DC4409215604D100F12519 /* AppDelegate.swift */,
 				F1DC440B215604D100F12519 /* ViewController.swift */,
-				F1DC440D215604D100F12519 /* Main.storyboard */,
 				F1DC4410215604D300F12519 /* Assets.xcassets */,
 				F1DC4412215604D300F12519 /* LaunchScreen.storyboard */,
 				F1DC4415215604D300F12519 /* Info.plist */,
 			);
 			path = LittleLibrary;
+			sourceTree = "<group>";
+		};
+		F1DC441B215606F000F12519 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F1DC441C2156070300F12519 /* User.swift */,
+				F1DC4431215677D900F12519 /* Book.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F1DC441E2156085100F12519 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1DC44212156087E00F12519 /* MainViewController.swift */,
+				F1DC44222156087E00F12519 /* MainViewController.xib */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		F1DC4428215617FC00F12519 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				F1DC442C2156184E00F12519 /* LLService.swift */,
+				F1DC443321567D2700F12519 /* LLService+Test.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		F1DC44292156180900F12519 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F1DC44372156809B00F12519 /* Font */,
+				F1DC4426215617E800F12519 /* Alamofire.framework */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F1DC442A2156182800F12519 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1DC44372156809B00F12519 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F1DC4441215680A400F12519 /* Aileron-Black.ttf */,
+				F1DC443F215680A300F12519 /* Aileron-BlackItalic.ttf */,
+				F1DC443A215680A300F12519 /* Aileron-Bold.ttf */,
+				F1DC4447215680A400F12519 /* Aileron-BoldItalic.ttf */,
+				F1DC4442215680A400F12519 /* Aileron-Heavy.ttf */,
+				F1DC4439215680A300F12519 /* Aileron-HeavyItalic.ttf */,
+				F1DC443E215680A300F12519 /* Aileron-Italic.ttf */,
+				F1DC4440215680A400F12519 /* Aileron-Light.ttf */,
+				F1DC443D215680A300F12519 /* Aileron-LightItalic.ttf */,
+				F1DC4443215680A400F12519 /* Aileron-Regular.ttf */,
+				F1DC443C215680A300F12519 /* Aileron-SemiBold.ttf */,
+				F1DC4438215680A300F12519 /* Aileron-SemiBoldItalic.ttf */,
+				F1DC443B215680A300F12519 /* Aileron-Thin.ttf */,
+				F1DC4444215680A400F12519 /* Aileron-ThinItalic.ttf */,
+				F1DC4445215680A400F12519 /* Aileron-UltraLight.ttf */,
+				F1DC4446215680A400F12519 /* Aileron-UltraLightItalic.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +190,7 @@
 				F1DC4402215604D100F12519 /* Sources */,
 				F1DC4403215604D100F12519 /* Frameworks */,
 				F1DC4404215604D100F12519 /* Resources */,
+				F1DC44302156763500F12519 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,7 +241,7 @@
 			files = (
 				F1DC4414215604D300F12519 /* LaunchScreen.storyboard in Resources */,
 				F1DC4411215604D300F12519 /* Assets.xcassets in Resources */,
-				F1DC440F215604D100F12519 /* Main.storyboard in Resources */,
+				F1DC44242156087E00F12519 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,21 +253,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DC440C215604D100F12519 /* ViewController.swift in Sources */,
+				F1DC443421567D2700F12519 /* LLService+Test.swift in Sources */,
+				F1DC442D2156184E00F12519 /* LLService.swift in Sources */,
+				F1DC4432215677D900F12519 /* Book.swift in Sources */,
 				F1DC440A215604D100F12519 /* AppDelegate.swift in Sources */,
+				F1DC441D2156070300F12519 /* User.swift in Sources */,
+				F1DC44232156087E00F12519 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F1DC440D215604D100F12519 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F1DC440E215604D100F12519 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F1DC4412215604D300F12519 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,6 +398,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8GQ989BHEA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Resource",
+				);
 				INFOPLIST_FILE = LittleLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +421,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8GQ989BHEA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Resource",
+				);
 				INFOPLIST_FILE = LittleLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
