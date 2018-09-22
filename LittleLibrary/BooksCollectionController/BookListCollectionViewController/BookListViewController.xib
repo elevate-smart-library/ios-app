@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookListViewController" customModule="LittleLibrary" customModuleProvider="target">
+            <connections>
+                <outlet property="scrollView" destination="DQd-oL-Tkl" id="Kkl-jB-pAy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="659"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQd-oL-Tkl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="659"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="DQd-oL-Tkl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LhQ-fA-tIx"/>
+                <constraint firstAttribute="trailing" secondItem="DQd-oL-Tkl" secondAttribute="trailing" id="PwT-gY-QO4"/>
+                <constraint firstAttribute="bottom" secondItem="DQd-oL-Tkl" secondAttribute="bottom" id="ow3-xL-vD7"/>
+                <constraint firstItem="DQd-oL-Tkl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qm7-xE-8nz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="404" y="157"/>
+        </view>
+    </objects>
+</document>

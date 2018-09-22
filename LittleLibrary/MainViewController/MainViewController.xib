@@ -8,9 +8,16 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Aileron-Regular.ttf">
+            <string>Aileron-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="LittleLibrary" customModuleProvider="target">
             <connections>
+                <outlet property="mapView" destination="yOz-wM-k8o" id="xDF-ZC-h7x"/>
+                <outlet property="navigationBar" destination="qaT-Q8-HRT" id="HmN-CX-lNr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +25,81 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.99215686270000003" green="0.7843137255" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yOz-wM-k8o">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                </mapView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="yOz-wM-k8o" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3Le-d9-U5I"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yOz-wM-k8o" secondAttribute="bottom" id="Cbq-gx-Y63"/>
+                <constraint firstItem="yOz-wM-k8o" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Sfy-Id-YCq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yOz-wM-k8o" secondAttribute="trailing" id="wuk-la-IXX"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
+        <view contentMode="scaleToFill" id="qaT-Q8-HRT" userLabel="NavigationBar" customClass="SearchNavigationBar" customModule="LittleLibrary" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="5UI-RQ-0U9">
+                    <rect key="frame" x="16" y="33" width="343" height="51"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="EkZ-j3-QaX">
+                            <rect key="frame" x="13" y="17" width="17" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="17" id="WiO-OI-yCK"/>
+                            </constraints>
+                        </imageView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search by Title, Author or Genre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNZ-gf-zyh">
+                            <rect key="frame" x="41" y="13" width="288" height="25"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" name="Aileron-Regular" family="Aileron" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="EkZ-j3-QaX" firstAttribute="leading" secondItem="5UI-RQ-0U9" secondAttribute="leading" constant="13" id="7ws-Z0-NCe"/>
+                        <constraint firstItem="aNZ-gf-zyh" firstAttribute="top" secondItem="5UI-RQ-0U9" secondAttribute="top" constant="13" id="8Ti-bV-1rh"/>
+                        <constraint firstAttribute="bottom" secondItem="aNZ-gf-zyh" secondAttribute="bottom" constant="13" id="9o2-QA-Zgn"/>
+                        <constraint firstAttribute="bottom" secondItem="EkZ-j3-QaX" secondAttribute="bottom" constant="17" id="AdT-hg-RQ2"/>
+                        <constraint firstItem="EkZ-j3-QaX" firstAttribute="top" secondItem="5UI-RQ-0U9" secondAttribute="top" constant="17" id="bUA-9D-p3F"/>
+                        <constraint firstItem="aNZ-gf-zyh" firstAttribute="leading" secondItem="EkZ-j3-QaX" secondAttribute="trailing" constant="11" id="jV8-RX-xYi"/>
+                        <constraint firstAttribute="trailing" secondItem="aNZ-gf-zyh" secondAttribute="trailing" constant="14" id="oiJ-m0-i5N"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBW-O1-XJn">
+                    <rect key="frame" x="169.5" y="96" width="36" height="17"/>
+                    <fontDescription key="fontDescription" name="Aileron-Regular" family="Aileron" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.086274509803921567" green="0.50980392156862742" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="GBW-O1-XJn" firstAttribute="top" secondItem="5UI-RQ-0U9" secondAttribute="bottom" constant="12" id="2Tp-tb-SBj"/>
+                <constraint firstItem="5UI-RQ-0U9" firstAttribute="leading" secondItem="cUL-cd-w7u" secondAttribute="leading" constant="16" id="HNh-kA-8Zn"/>
+                <constraint firstItem="cUL-cd-w7u" firstAttribute="trailing" secondItem="5UI-RQ-0U9" secondAttribute="trailing" constant="16" id="aKM-p8-jrP"/>
+                <constraint firstItem="cUL-cd-w7u" firstAttribute="bottom" secondItem="GBW-O1-XJn" secondAttribute="bottom" constant="10" id="cgu-sL-1yy"/>
+                <constraint firstItem="5UI-RQ-0U9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cUL-cd-w7u" secondAttribute="top" constant="13" id="dIH-nj-5IJ"/>
+                <constraint firstItem="GBW-O1-XJn" firstAttribute="centerX" secondItem="qaT-Q8-HRT" secondAttribute="centerX" id="qja-Yd-IkZ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="cUL-cd-w7u"/>
+            <connections>
+                <outlet property="subTitle" destination="GBW-O1-XJn" id="FgI-0z-Gaf"/>
+            </connections>
+            <point key="canvasLocation" x="764" y="19"/>
+        </view>
     </objects>
+    <resources>
+        <image name="search" width="17" height="17"/>
+    </resources>
 </document>
