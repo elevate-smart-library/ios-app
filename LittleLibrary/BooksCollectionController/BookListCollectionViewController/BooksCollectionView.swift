@@ -18,6 +18,10 @@ struct BooksViewModel {
 
 class BooksCollectionView: UICollectionView {
   
+  final class Design {
+    static let defaultHeight: CGFloat = 320.0
+  }
+  
   var books: [BooksViewModel] = [BooksViewModel(),BooksViewModel(),BooksViewModel()]
   
   static let cellIdentifier: String = "BookCell"
@@ -26,8 +30,8 @@ class BooksCollectionView: UICollectionView {
     let layout = UICollectionViewFlowLayout()
     super.init(frame: CGRect.zero, collectionViewLayout: layout)
     layout.scrollDirection = .horizontal
-    
-    
+    layout.itemSize = CGSize(width: 143.0, height: 311.0)
+    backgroundColor = .clear
     self.delegate = self
     self.dataSource = self
     
@@ -63,17 +67,13 @@ class BookCell: UICollectionViewCell {
   
   let imageView = UIImageView()
   
-  init() {
-    super.init(frame: CGRect.zero)
-    imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.contentMode = .scaleAspectFit
+  override init(frame: CGRect) {
+    super.init(frame: frame)
     contentView.addSubview(imageView)
+
+    imageView.contentMode = .scaleAspectFit
+    imageView.pinToSuperView()
     
-    NSLayoutConstraint.activate([
-      imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-      imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-      imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor)
-    ])
     imageView.image = #imageLiteral(resourceName: "tempBook")
   }
   
@@ -81,5 +81,4 @@ class BookCell: UICollectionViewCell {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
 }

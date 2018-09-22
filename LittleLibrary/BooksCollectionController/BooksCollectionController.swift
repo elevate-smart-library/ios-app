@@ -11,13 +11,23 @@ import UIKit
 class BooksCollectionController: UIViewController {
 
   @IBOutlet var gestureView: UIView!
+  @IBOutlet var containerView: UIView!
+  
   private var startY: CGFloat = 0.0
   private var endY: CGFloat = 0.0
   
   var initialOrigin = CGPoint()  // The initial center point of the view.
   
+  let bookList = BookListViewController()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    addChild(bookList)
+    
+    containerView.addSubview(bookList.view)
+    bookList.view.pinToSuperView()
+    
     view.layer.shadowColor = UIColor.black.cgColor
     view.layer.shadowOpacity = 1
     view.layer.shadowOffset = CGSize.zero
