@@ -40,7 +40,7 @@ class BookListViewController: UIViewController {
     background.layer.cornerRadius = 25.0
     
     scrollView.addSubview(background)
-    
+    scrollView.delegate = self
     
     bookType.frame = CGRect(x: 16.0, y: 30.0, width: view.frame.width - 16.0 * 2.0, height: BookTypeSelection.Design.defaultHeight)
     
@@ -61,7 +61,7 @@ class BookListViewController: UIViewController {
     scrollView.addSubview(recommandHeader)
     scrollView.addSubview(recommandBooks)
     
-    scrollView.contentInset = UIEdgeInsets(top: 400.0, left: 0.0, bottom: 0.0, right: 0.0)
+    scrollView.contentInset = UIEdgeInsets(top: 450.0, left: 0.0, bottom: 0.0, right: 0.0)
   }
   
   override func viewDidLayoutSubviews() {
@@ -74,6 +74,47 @@ class BookListViewController: UIViewController {
     background.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: contentSize.height + 1000.0)
   }
 
+}
+
+extension BookListViewController: UIScrollViewDelegate {
+  
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    if !decelerate {
+      let middleValue = (scrollView.contentInset.top - 123.0) / 2.0
+      var offset = scrollView.contentOffset
+      if offset.y < -123.0 && abs(offset.y + 123.0) < middleValue {
+        offset.y = -123.0
+        UIView.animate(withDuration: 0.3) {
+          scrollView.contentOffset = offset
+        }
+      } else if offset.y < -123.0 {
+        offset.y = -scrollView.contentInset.top
+        UIView.animate(withDuration: 0.3) {
+          scrollView.contentOffset = offset
+        }
+      }
+    }
+  }
+  
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    
+    if !scrollView.isDragging {
+      let middleValue = (scrollView.contentInset.top - 123.0) / 2.0
+      var offset = scrollView.contentOffset
+      if offset.y < -123.0 && abs(offset.y + 123.0) < middleValue {
+        offset.y = -123.0
+        UIView.animate(withDuration: 0.3) {
+          scrollView.contentOffset = offset
+        }
+      } else if offset.y < -123.0 {
+        offset.y = -scrollView.contentInset.top
+        UIView.animate(withDuration: 0.3) {
+          scrollView.contentOffset = offset
+        }
+      }
+    }
+  }
+  
 }
 
 class BookListHeader: UIView {
