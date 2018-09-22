@@ -10,7 +10,7 @@ import UIKit
 
 class BooksCollectionController: UIViewController {
 
-  @IBOutlet var gestureView: UIView!
+  let gestureView = UIView()
   @IBOutlet var containerView: UIView!
   
   private var startY: CGFloat = 0.0
@@ -19,19 +19,24 @@ class BooksCollectionController: UIViewController {
   var initialOrigin = CGPoint()  // The initial center point of the view.
   
   let bookList = BookListViewController()
+  lazy var theGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     addChild(bookList)
     
+    gestureView.backgroundColor = .clear
+    view.addSubview(gestureView)
+    gestureView.pinToSuperView()
+    
     containerView.addSubview(bookList.view)
     bookList.view.pinToSuperView()
     
     view.addShadow(color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.5), offSet: CGSize(width: 0.0, height: 1.0), radius: 2.0)
     
-    gestureView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGesture)))
-    
+    gestureView.addGestureRecognizer(theGesture)
+    theGesture.delegate = self
   }
   
   @objc
@@ -76,4 +81,17 @@ class BooksCollectionController: UIViewController {
     
     view.frame = CGRect(x: 0, y: self.startY, width: theView.bounds.width, height: height)
   }
+}
+
+extension BooksCollectionController: UIGestureRecognizerDelegate {
+  
+  func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    print("lsls \(bookList.scrollView.contentOffset.y)")
+    if bookList.scrollView.contentOffset.y <= 0 {
+      return true
+    } else {
+      return false
+    }
+  }
+  
 }

@@ -11,7 +11,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BooksCollectionController" customModule="LittleLibrary" customModuleProvider="target">
             <connections>
                 <outlet property="containerView" destination="1hR-y2-dGC" id="8aB-qn-1qC"/>
-                <outlet property="gestureView" destination="cLC-xu-xQo" id="QHl-zm-Ndx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,10 +19,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="651"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLC-xu-xQo">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjD-pO-Lak">
                     <rect key="frame" x="158.5" y="15" width="58" height="6"/>
                     <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,16 +39,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="cLC-xu-xQo" secondAttribute="trailing" id="C4M-iF-li9"/>
-                <constraint firstItem="1hR-y2-dGC" firstAttribute="top" secondItem="cLC-xu-xQo" secondAttribute="bottom" id="DkG-ph-kVe"/>
                 <constraint firstItem="cjD-pO-Lak" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="Iis-YN-Hgm"/>
                 <constraint firstItem="1hR-y2-dGC" firstAttribute="top" secondItem="cjD-pO-Lak" secondAttribute="bottom" constant="15" id="ScD-r8-dwW"/>
                 <constraint firstItem="cjD-pO-Lak" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UDv-Bs-ip3"/>
                 <constraint firstAttribute="trailing" secondItem="1hR-y2-dGC" secondAttribute="trailing" id="Wbo-9S-xPV"/>
                 <constraint firstItem="1hR-y2-dGC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dWo-u6-qmS"/>
-                <constraint firstItem="cLC-xu-xQo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fyV-8U-t9m"/>
                 <constraint firstAttribute="bottom" secondItem="1hR-y2-dGC" secondAttribute="bottom" constant="15" id="gAu-dk-S5c"/>
-                <constraint firstItem="cLC-xu-xQo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xWG-fE-4u4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
