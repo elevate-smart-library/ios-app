@@ -40,6 +40,7 @@ public extension UIColor {
   public static let brandTeensOrange = UIColor(hex: 0xF77220)
   public static let brandChildBlue = UIColor(hex: 0x68C4D4)
 
+  public static let brandGreyColor = UIColor(hex: 0xEDEDED)
 
   
   /**

@@ -12,6 +12,8 @@ class BookListViewController: UIViewController {
 
   @IBOutlet var scrollView: UIScrollView!
   
+  let background = BackgroundView()
+  
   let bookType = BookTypeSelection()
   
   let justAddHeader = BookListHeader()
@@ -23,7 +25,24 @@ class BookListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    bookType.frame = CGRect(x: 16.0, y: 0.0, width: view.frame.width - 16.0 * 2.0, height: BookTypeSelection.Design.defaultHeight)
+    if let touchView = view as? TouchThrowView {
+      touchView.shouldReactorToHit = { point, view in
+        if view == self.scrollView {
+          return false
+        }
+        return true
+      }
+    }
+    
+    scrollView.showsVerticalScrollIndicator = false
+    
+    background.backgroundColor = .white
+    background.layer.cornerRadius = 25.0
+    
+    scrollView.addSubview(background)
+    
+    
+    bookType.frame = CGRect(x: 16.0, y: 30.0, width: view.frame.width - 16.0 * 2.0, height: BookTypeSelection.Design.defaultHeight)
     
     justAddHeader.frame = CGRect(x: 0.0, y: bookType.frame.maxY, width: view.frame.width, height: BookListHeader.Design.height)
     justAddHeader.title.text = "Just Add"
@@ -42,13 +61,17 @@ class BookListViewController: UIViewController {
     scrollView.addSubview(recommandHeader)
     scrollView.addSubview(recommandBooks)
     
+    scrollView.contentInset = UIEdgeInsets(top: 400.0, left: 0.0, bottom: 0.0, right: 0.0)
   }
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     var contentSize = scrollView.contentSize
+    contentSize.width = view.frame.width
     contentSize.height = recommandBooks.frame.maxY
     scrollView.contentSize = contentSize
+    
+    background.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: contentSize.height + 1000.0)
   }
 
 }
@@ -104,6 +127,32 @@ class BookListHeader: UIView {
   }
 }
 
+class BackgroundView: UIView {
+  
+  let node = UIView()
+  
+  init() {
+    super.init(frame: CGRect.zero)
+    node.backgroundColor = UIColor.brandGreyColor
+    addSubview(node)
+    node.layer.cornerRadius = 3.0
+    
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    let theFrame = self.frame
+    let width: CGFloat = 58.0
+    let heigh: CGFloat = 6.0
+    node.frame = CGRect(x: (theFrame.width - width) / 2.0, y: 13.0, width: width, height: heigh)
+  }
+  
+  @available(*, unavailable)
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+}
 
 class BookTypeSelection: UIStackView {
   
@@ -152,3 +201,5 @@ class BookTypeSelection: UIStackView {
   }
   
 }
+
+

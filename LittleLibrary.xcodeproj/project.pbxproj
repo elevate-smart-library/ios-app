@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F158AE4D2156F494005C3CE8 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE4C2156F494005C3CE8 /* ScrollView.swift */; };
 		F1A00CC52156895C00F11089 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CC42156895C00F11089 /* Color.swift */; };
 		F1A00CC7215689C200F11089 /* SearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CC6215689C200F11089 /* SearchNavigationBar.swift */; };
 		F1A00CC92156968800F11089 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A00CC82156968800F11089 /* MapKit.framework */; };
-		F1A00CCE21569AC800F11089 /* BooksCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CCC21569AC800F11089 /* BooksCollectionController.swift */; };
-		F1A00CCF21569AC800F11089 /* BooksCollectionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A00CCD21569AC800F11089 /* BooksCollectionController.xib */; };
 		F1A00CD32156B48600F11089 /* BookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CD12156B48600F11089 /* BookListViewController.swift */; };
 		F1A00CD42156B48600F11089 /* BookListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1A00CD22156B48600F11089 /* BookListViewController.xib */; };
 		F1A00CDA2156B5A200F11089 /* BooksCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CD92156B5A200F11089 /* BooksCollectionView.swift */; };
@@ -62,11 +61,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F158AE4C2156F494005C3CE8 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		F1A00CC42156895C00F11089 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F1A00CC6215689C200F11089 /* SearchNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigationBar.swift; sourceTree = "<group>"; };
 		F1A00CC82156968800F11089 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F1A00CCC21569AC800F11089 /* BooksCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionController.swift; sourceTree = "<group>"; };
-		F1A00CCD21569AC800F11089 /* BooksCollectionController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BooksCollectionController.xib; sourceTree = "<group>"; };
 		F1A00CD12156B48600F11089 /* BookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewController.swift; sourceTree = "<group>"; };
 		F1A00CD22156B48600F11089 /* BookListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookListViewController.xib; sourceTree = "<group>"; };
 		F1A00CD92156B5A200F11089 /* BooksCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionView.swift; sourceTree = "<group>"; };
@@ -120,8 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				F1A00CD02156B46100F11089 /* BookListCollectionViewController */,
-				F1A00CCC21569AC800F11089 /* BooksCollectionController.swift */,
-				F1A00CCD21569AC800F11089 /* BooksCollectionController.xib */,
 			);
 			path = BooksCollectionController;
 			sourceTree = "<group>";
@@ -247,6 +243,7 @@
 			children = (
 				F1DC44492156845800F12519 /* Font.swift */,
 				F1A00CC42156895C00F11089 /* Color.swift */,
+				F158AE4C2156F494005C3CE8 /* ScrollView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -317,7 +314,6 @@
 			files = (
 				F1A00CEB2156C6C900F11089 /* Aileron-Thin.ttf in Resources */,
 				F1A00CED2156C6C900F11089 /* Aileron-UltraLight.ttf in Resources */,
-				F1A00CCF21569AC800F11089 /* BooksCollectionController.xib in Resources */,
 				F1DC4414215604D300F12519 /* LaunchScreen.storyboard in Resources */,
 				F1A00CE42156C6C900F11089 /* Aileron-HeavyItalic.ttf in Resources */,
 				F1A00CD42156B48600F11089 /* BookListViewController.xib in Resources */,
@@ -346,8 +342,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1A00CCE21569AC800F11089 /* BooksCollectionController.swift in Sources */,
 				F1DC440C215604D100F12519 /* ViewController.swift in Sources */,
+				F158AE4D2156F494005C3CE8 /* ScrollView.swift in Sources */,
 				F1A00CDA2156B5A200F11089 /* BooksCollectionView.swift in Sources */,
 				F1DC443421567D2700F12519 /* LLService+Test.swift in Sources */,
 				F1DC442D2156184E00F12519 /* LLService.swift in Sources */,

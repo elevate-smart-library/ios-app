@@ -14,13 +14,16 @@ class MainViewController: UIViewController {
   @IBOutlet var navigationBar: SearchNavigationBar!
   @IBOutlet var mapView: MKMapView!
   
-  let booksCollectionViewController = BooksCollectionController()
-  
+  let bookList = BookListViewController()
   let locationManager = CLLocationManager()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    view.addSubview(bookList.view)
     view.addSubview(navigationBar)
+    
+    bookList.view.pinToSuperView()
     
     navigationBar.subTitle.text = "6 Little Libraries Nearby"
     
@@ -42,7 +45,6 @@ class MainViewController: UIViewController {
       navigationBar.rightAnchor.constraint(equalTo: view.rightAnchor)
     ])
     
-    booksCollectionViewController.installView(above: view, startY: 429.0, endY: view.safeAreaInsets.top + 123.0, height: UIScreen.main.bounds.height - 90.0)
   }
 }
 
