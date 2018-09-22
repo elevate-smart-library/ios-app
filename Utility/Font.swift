@@ -11,6 +11,7 @@ import UIKit
 
 private let fontMapping: [UIFont.Weight: String] = [
   .regular: "Aileron-Regular",
+  .semibold: "Aileron-SemiBold",
   .bold: "Aileron-Bold",
   .black: "Aileron-Black",
   .heavy: "Aileron-Heavy",

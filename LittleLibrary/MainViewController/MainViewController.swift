@@ -22,6 +22,8 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     view.addSubview(navigationBar)
     
+    navigationBar.subTitle.text = "6 Little Libraries Nearby"
+    
     locationManager.delegate = self
     locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
     if CLLocationManager.authorizationStatus() == .notDetermined {

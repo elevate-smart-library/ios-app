@@ -28,12 +28,10 @@ class BooksCollectionController: UIViewController {
     containerView.addSubview(bookList.view)
     bookList.view.pinToSuperView()
     
-    view.layer.shadowColor = UIColor.black.cgColor
-    view.layer.shadowOpacity = 1
-    view.layer.shadowOffset = CGSize.zero
-    view.layer.shadowRadius = 10
+    view.addShadow(color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.5), offSet: CGSize(width: 0.0, height: 1.0), radius: 2.0)
     
     gestureView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGesture)))
+    
   }
   
   @objc

@@ -12,6 +12,8 @@ class BookListViewController: UIViewController {
 
   @IBOutlet var scrollView: UIScrollView!
   
+  let bookType = BookTypeSelection()
+  
   let justAddHeader = BookListHeader()
   let justAddBooks = BooksCollectionView()
   
@@ -21,7 +23,9 @@ class BookListViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    justAddHeader.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: BookListHeader.Design.height)
+    bookType.frame = CGRect(x: 16.0, y: 0.0, width: view.frame.width - 16.0 * 2.0, height: BookTypeSelection.Design.defaultHeight)
+    
+    justAddHeader.frame = CGRect(x: 0.0, y: bookType.frame.maxY, width: view.frame.width, height: BookListHeader.Design.height)
     justAddHeader.title.text = "Just Add"
     justAddBooks.frame = CGRect(x: 0.0, y: justAddHeader.frame.maxY, width: view.frame.width, height: BooksCollectionView.Design.defaultHeight)
     
@@ -29,6 +33,8 @@ class BookListViewController: UIViewController {
     recommandHeader.title.text = "Recommanded"
     recommandBooks.frame = CGRect(x: 0.0, y: recommandHeader.frame.maxY, width: view.frame.width, height: BooksCollectionView.Design.defaultHeight)
 
+    
+    scrollView.addSubview(bookType)
     
     scrollView.addSubview(justAddHeader)
     scrollView.addSubview(justAddBooks)
@@ -50,7 +56,7 @@ class BookListViewController: UIViewController {
 class BookListHeader: UIView {
   
   final class Design {
-    static let height: CGFloat = 22.0 + 10.0 + 10.0
+    static let height: CGFloat = 66.0
   }
   
   let title = UILabel()
@@ -96,4 +102,53 @@ class BookListHeader: UIView {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+}
+
+
+class BookTypeSelection: UIStackView {
+  
+  final class Design {
+    static let defaultHeight: CGFloat = 113.0
+  }
+  
+  let adults = UIButton()
+  let teens = UIButton()
+  let children = UIButton()
+  
+  init() {
+    super.init(frame: CGRect.zero)
+    self.axis = .horizontal
+    self.alignment = .fill
+    self.distribution = .fillEqually
+    self.spacing = 9.0
+    
+    
+    let buttons:[UIButton] = [adults, teens, children]
+    buttons.forEach { button in
+      button.layer.cornerRadius = 5.0
+      button.titleLabel?.numberOfLines = 2
+      button.titleLabel?.textAlignment = .center
+      button.titleLabel?.font = UIFont.brandFont(ofSize: 15.0, weight: .bold)
+    }
+    
+    adults.setTitle("For\nAdults", for: .normal)
+    adults.backgroundColor = UIColor.brandAdultGreen
+    
+    teens.setTitle("For\nTeens", for: .normal)
+    teens.backgroundColor = UIColor.brandTeensOrange
+
+    
+    children.setTitle("For\nChildren", for: .normal)
+    children.backgroundColor = UIColor.brandChildBlue
+
+    addArrangedSubview(adults)
+    addArrangedSubview(teens)
+    addArrangedSubview(children)
+  }
+  
+  @available(*, unavailable)
+  required init(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
 }
