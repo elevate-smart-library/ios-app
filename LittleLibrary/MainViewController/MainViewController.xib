@@ -52,12 +52,21 @@
                                 <constraint firstAttribute="width" constant="17" id="WiO-OI-yCK"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search by Title, Author or Genre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNZ-gf-zyh">
+                        <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search by Title, Author or Genre" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aNZ-gf-zyh">
                             <rect key="frame" x="41" y="13" width="288" height="25"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" name="Aileron-Regular" family="Aileron" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXP-Bx-Ak1">
+                            <rect key="frame" x="6" y="10" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="FBv-xg-Wyv"/>
+                            </constraints>
+                            <connections>
+                                <action selector="buttonClick" destination="qaT-Q8-HRT" eventType="touchUpInside" id="H5L-k9-idy"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -65,6 +74,9 @@
                         <constraint firstItem="aNZ-gf-zyh" firstAttribute="top" secondItem="5UI-RQ-0U9" secondAttribute="top" constant="13" id="8Ti-bV-1rh"/>
                         <constraint firstAttribute="bottom" secondItem="aNZ-gf-zyh" secondAttribute="bottom" constant="13" id="9o2-QA-Zgn"/>
                         <constraint firstAttribute="bottom" secondItem="EkZ-j3-QaX" secondAttribute="bottom" constant="17" id="AdT-hg-RQ2"/>
+                        <constraint firstItem="vXP-Bx-Ak1" firstAttribute="leading" secondItem="5UI-RQ-0U9" secondAttribute="leading" constant="6" id="BHX-dR-0fR"/>
+                        <constraint firstAttribute="bottom" secondItem="vXP-Bx-Ak1" secondAttribute="bottom" constant="11" id="T7d-mu-Row"/>
+                        <constraint firstItem="vXP-Bx-Ak1" firstAttribute="top" secondItem="5UI-RQ-0U9" secondAttribute="top" constant="10" id="TWz-GP-LAF"/>
                         <constraint firstItem="EkZ-j3-QaX" firstAttribute="top" secondItem="5UI-RQ-0U9" secondAttribute="top" constant="17" id="bUA-9D-p3F"/>
                         <constraint firstItem="aNZ-gf-zyh" firstAttribute="leading" secondItem="EkZ-j3-QaX" secondAttribute="trailing" constant="11" id="jV8-RX-xYi"/>
                         <constraint firstAttribute="trailing" secondItem="aNZ-gf-zyh" secondAttribute="trailing" constant="14" id="oiJ-m0-i5N"/>
@@ -94,6 +106,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="cUL-cd-w7u"/>
             <connections>
+                <outlet property="icon" destination="EkZ-j3-QaX" id="D6k-df-rNc"/>
+                <outlet property="searchField" destination="aNZ-gf-zyh" id="kqS-Ff-MZ8"/>
                 <outlet property="subTitle" destination="GBW-O1-XJn" id="FgI-0z-Gaf"/>
             </connections>
             <point key="canvasLocation" x="764" y="19"/>

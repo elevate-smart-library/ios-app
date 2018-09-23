@@ -69,6 +69,9 @@ class MainViewController: UIViewController {
     let navSize = navigationBar.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     let height = navSize.height + (view.safeAreaInsets.top == 0 ? 20.0 : view.safeAreaInsets.top)
     
+    navigationBar.searchVC = searchList
+    searchList.view.alpha = 0.0
+    
     NSLayoutConstraint.activate([
       navigationBar.topAnchor.constraint(equalTo: view.topAnchor),
       navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor),
