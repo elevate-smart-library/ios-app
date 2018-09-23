@@ -36,6 +36,7 @@
 		F1A00CEC2156C6C900F11089 /* Aileron-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1DC4444215680A400F12519 /* Aileron-ThinItalic.ttf */; };
 		F1A00CED2156C6C900F11089 /* Aileron-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1DC4445215680A400F12519 /* Aileron-UltraLight.ttf */; };
 		F1A00CEE2156C6C900F11089 /* Aileron-UltraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1DC4446215680A400F12519 /* Aileron-UltraLightItalic.ttf */; };
+		F1D716D721576B47007B8119 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D716D621576B47007B8119 /* BottomBar.swift */; };
 		F1DC440A215604D100F12519 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC4409215604D100F12519 /* AppDelegate.swift */; };
 		F1DC440C215604D100F12519 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC440B215604D100F12519 /* ViewController.swift */; };
 		F1DC4411215604D300F12519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1DC4410215604D300F12519 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		F1A00CD22156B48600F11089 /* BookListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookListViewController.xib; sourceTree = "<group>"; };
 		F1A00CD92156B5A200F11089 /* BooksCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksCollectionView.swift; sourceTree = "<group>"; };
 		F1A00CDB2156BB4C00F11089 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		F1D716D621576B47007B8119 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		F1DC4406215604D100F12519 /* LittleLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1DC4409215604D100F12519 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1DC440B215604D100F12519 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				F1DC44212156087E00F12519 /* MainViewController.swift */,
 				F1DC44222156087E00F12519 /* MainViewController.xib */,
 				F1A00CC6215689C200F11089 /* SearchNavigationBar.swift */,
+				F1D716D621576B47007B8119 /* BottomBar.swift */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				F1A00CDC2156BB4C00F11089 /* UIView.swift in Sources */,
 				F1DC441D2156070300F12519 /* User.swift in Sources */,
 				F158AE5221570367005C3CE8 /* Library.swift in Sources */,
+				F1D716D721576B47007B8119 /* BottomBar.swift in Sources */,
 				F1DC44232156087E00F12519 /* MainViewController.swift in Sources */,
 				F158AE5A2157585A005C3CE8 /* BookSearchResultController.swift in Sources */,
 				F1A00CC52156895C00F11089 /* Color.swift in Sources */,

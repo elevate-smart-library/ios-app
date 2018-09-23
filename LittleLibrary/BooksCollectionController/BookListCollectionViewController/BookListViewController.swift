@@ -63,7 +63,13 @@ class BookListViewController: UIViewController {
     scrollView.addSubview(commonBookInfo)
     scrollView.addSubview(library)
     
-    scrollView.contentInset = UIEdgeInsets(top: 450.0, left: 0.0, bottom: 0.0, right: 0.0)
+    var additionalInsetBot: CGFloat = 49.0
+    
+    if let saftInset = UIApplication.shared.delegate?.window??.safeAreaInsets {
+      additionalInsetBot += saftInset.bottom
+    }
+    
+    scrollView.contentInset = UIEdgeInsets(top: 400.0, left: 0.0, bottom: additionalInsetBot, right: 0.0)
   }
   
   override func viewDidLayoutSubviews() {

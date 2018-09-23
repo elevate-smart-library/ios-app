@@ -51,6 +51,9 @@ public extension UIColor {
   //1E5288
   public static let brandButtonBlue = UIColor(hex: 0x1E5288)
 
+  //3797AD
+  public static let brandIndicatorBlue = UIColor(hex: 0x3797AD)
+
   /**
    Get transit color between two color, with progress
    

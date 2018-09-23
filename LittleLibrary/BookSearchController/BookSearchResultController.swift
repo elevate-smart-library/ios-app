@@ -11,9 +11,35 @@ import UIKit
 
 class BookSearchResultController: UIViewController {
   
+  enum Status {
+    case recommand
+    case search
+  }
+  
   let bookTable = BookTableView()
   
   let placeHolder = UIStackView()
+  
+  let recommandation = UIStackView()
+  
+  var books: [BooksViewModel] = [] {
+    
+    didSet {
+      bookTable.books = books
+      placeHolder.isHidden = !books.isEmpty
+      recommandation.isHidden = true
+    }
+    
+  }
+  
+  var status: Status = .recommand {
+    didSet {
+      if status == .recommand {
+        placeHolder.isHidden = true
+        recommandation.isHidden = false
+      }
+    }
+  }
   
   init() {
     super.init(nibName: nil, bundle: nil)
@@ -22,6 +48,8 @@ class BookSearchResultController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    initialSuggestion()
     
     placeHolder.alignment = .fill
     placeHolder.axis = .vertical
@@ -42,8 +70,10 @@ class BookSearchResultController: UIViewController {
     view.addSubview(placeHolder)
     NSLayoutConstraint.activate([
       placeHolder.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      placeHolder.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20.0)
+      placeHolder.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -70.0)
     ])
+    
+    placeHolder.isHidden = true
     
     view.addSubview(bookTable)
     bookTable.pinToSuperView()
@@ -51,7 +81,38 @@ class BookSearchResultController: UIViewController {
     bookTable.isScrollEnabled = true
     
     view.backgroundColor = UIColor.brandBlue
+  }
+  
+  func initialSuggestion() {
     
+    recommandation.alignment = .fill
+    recommandation.axis = .vertical
+    recommandation.distribution = .equalSpacing
+    recommandation.spacing = 20.0
+    
+    let suggestions: [String] = [
+      "Fiction",
+      "Nonfiction",
+      "Science Fiction",
+      "Mysteries",
+      "Graphic Books",
+      "Romance"
+    ]
+    suggestions.forEach { string in
+      let label = UILabel()
+      label.font = UIFont.brandFont(ofSize: 20.0)
+      label.textColor = .white
+      label.textAlignment = .center
+      label.text = string
+      recommandation.addArrangedSubview(label)
+    }
+    
+    recommandation.translatesAutoresizingMaskIntoConstraints = false
+    bookTable.addSubview(recommandation)
+    NSLayoutConstraint.activate([
+      recommandation.topAnchor.constraint(equalTo: bookTable.topAnchor, constant: 20.0),
+      recommandation.centerXAnchor.constraint(equalTo: bookTable.centerXAnchor)
+    ])
     
   }
   

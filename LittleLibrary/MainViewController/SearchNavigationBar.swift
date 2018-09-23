@@ -60,8 +60,21 @@ extension SearchNavigationBar: UITextFieldDelegate {
     }
   }
   
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    
+    if let text = textField.text {
+      if text.isEmpty {
+        self.searchVC?.status = .recommand
+      }
+    }
+    
+    return true
+  }
+  
+  
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
+    self.searchVC?.books = []
     return true
   }
   

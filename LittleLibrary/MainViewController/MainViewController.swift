@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
 
   @IBOutlet var navigationBar: SearchNavigationBar!
   @IBOutlet var mapView: MKMapView!
+  @IBOutlet var bottomBar: BottomBar!
   
   static let identifier = "LibraryPin"
   
@@ -46,6 +47,8 @@ class MainViewController: UIViewController {
     
     view.addSubview(bookList.view)
     view.addSubview(navigationBar)
+    view.addSubview(bottomBar)
+    
     
     searchList.view.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(searchList.view)
@@ -67,21 +70,36 @@ class MainViewController: UIViewController {
     
     navigationBar.translatesAutoresizingMaskIntoConstraints = false
     let navSize = navigationBar.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-    let height = navSize.height + (view.safeAreaInsets.top == 0 ? 20.0 : view.safeAreaInsets.top)
+    
+    var navHeight = navSize.height
+    var botHeight: CGFloat = 49.0
+
+    if let saftInset = UIApplication.shared.delegate?.window??.safeAreaInsets {
+      navHeight += (saftInset.top == 0) ? 20.0: saftInset.top
+      botHeight += saftInset.bottom
+    }
     
     navigationBar.searchVC = searchList
     searchList.view.alpha = 0.0
+    
+    bottomBar.translatesAutoresizingMaskIntoConstraints = false
+    bottomBar.browseButton.isSelected = true
     
     NSLayoutConstraint.activate([
       navigationBar.topAnchor.constraint(equalTo: view.topAnchor),
       navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor),
       navigationBar.rightAnchor.constraint(equalTo: view.rightAnchor),
-      navigationBar.heightAnchor.constraint(equalToConstant: height),
+      navigationBar.heightAnchor.constraint(equalToConstant: navHeight),
       
       searchList.view.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
       searchList.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
       searchList.view.rightAnchor.constraint(equalTo: view.rightAnchor),
-      searchList.view.leftAnchor.constraint(equalTo: view.leftAnchor)
+      searchList.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+      
+      bottomBar.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      bottomBar.leftAnchor.constraint(equalTo: view.leftAnchor),
+      bottomBar.rightAnchor.constraint(equalTo: view.rightAnchor),
+      bottomBar.heightAnchor.constraint(equalToConstant: botHeight)
     ])
     
     
