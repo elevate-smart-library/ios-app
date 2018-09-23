@@ -34,7 +34,13 @@ class MainViewController: UIViewController {
     }
   }
   
-  var books: [Book] = []
+  var books: [Book] = [] {
+    
+    didSet {
+      bookList.commonBookInfo.books = books
+    }
+    
+  }
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
@@ -107,7 +113,7 @@ class MainViewController: UIViewController {
     
     LLService.shared.getLibrary { [weak self] result in
       switch result {
-      case .success(let libraries) :
+      case .success(let libraries):
         self?.libraries = libraries
       case .fail(let error):
         debugPrint("\(error)")
@@ -169,6 +175,15 @@ extension MainViewController: MKMapViewDelegate {
   
   @objc
   func updateView() {
+    if let selectedNotation = selectedAnnotation {
+      let filterBooks = books.filter { b -> Bool in
+        if b.library?.id == selectedNotation.library.id {
+          return true
+        }
+        return false
+      }
+      bookList.library.seletedLibAndBooks = (lib: selectedNotation.library, books: filterBooks)
+    }
     if selectedAnnotation == nil {
       bookList.status = .books
     } else {

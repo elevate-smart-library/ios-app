@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F141B65C2157DF0F00DA187F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F141B65B2157DF0F00DA187F /* Alamofire.framework */; };
+		F141B65E2157DF1800DA187F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F141B65D2157DF1800DA187F /* SDWebImage.framework */; };
 		F158AE4D2156F494005C3CE8 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE4C2156F494005C3CE8 /* ScrollView.swift */; };
 		F158AE502156FBF8005C3CE8 /* LibraryAnnotaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE4F2156FBF8005C3CE8 /* LibraryAnnotaion.swift */; };
 		F158AE5221570367005C3CE8 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE5121570367005C3CE8 /* Library.swift */; };
@@ -44,9 +46,7 @@
 		F1DC441D2156070300F12519 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC441C2156070300F12519 /* User.swift */; };
 		F1DC44232156087E00F12519 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC44212156087E00F12519 /* MainViewController.swift */; };
 		F1DC44242156087E00F12519 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1DC44222156087E00F12519 /* MainViewController.xib */; };
-		F1DC442B2156182800F12519 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DC4426215617E800F12519 /* Alamofire.framework */; };
 		F1DC442D2156184E00F12519 /* LLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC442C2156184E00F12519 /* LLService.swift */; };
-		F1DC442F2156763400F12519 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F1DC4426215617E800F12519 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1DC4432215677D900F12519 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC4431215677D900F12519 /* Book.swift */; };
 		F1DC443421567D2700F12519 /* LLService+Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC443321567D2700F12519 /* LLService+Test.swift */; };
 		F1DC444A2156845800F12519 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DC44492156845800F12519 /* Font.swift */; };
@@ -59,7 +59,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F1DC442F2156763400F12519 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +66,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F141B65B2157DF0F00DA187F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		F141B65D2157DF1800DA187F /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
 		F158AE4C2156F494005C3CE8 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		F158AE4F2156FBF8005C3CE8 /* LibraryAnnotaion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAnnotaion.swift; sourceTree = "<group>"; };
 		F158AE5121570367005C3CE8 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		F1DC441C2156070300F12519 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F1DC44212156087E00F12519 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F1DC44222156087E00F12519 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		F1DC4426215617E800F12519 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		F1DC442C2156184E00F12519 /* LLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLService.swift; sourceTree = "<group>"; };
 		F1DC4431215677D900F12519 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		F1DC443321567D2700F12519 /* LLService+Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LLService+Test.swift"; sourceTree = "<group>"; };
@@ -118,8 +118,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F141B65E2157DF1800DA187F /* SDWebImage.framework in Frameworks */,
+				F141B65C2157DF0F00DA187F /* Alamofire.framework in Frameworks */,
 				F1A00CC92156968800F11089 /* MapKit.framework in Frameworks */,
-				F1DC442B2156182800F12519 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				F1DC44372156809B00F12519 /* Font */,
-				F1DC4426215617E800F12519 /* Alamofire.framework */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -252,6 +252,8 @@
 		F1DC442A2156182800F12519 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F141B65D2157DF1800DA187F /* SDWebImage.framework */,
+				F141B65B2157DF0F00DA187F /* Alamofire.framework */,
 				F1A00CC82156968800F11089 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -301,6 +303,7 @@
 				F1DC4403215604D100F12519 /* Frameworks */,
 				F1DC4404215604D100F12519 /* Resources */,
 				F1DC44302156763500F12519 /* Embed Frameworks */,
+				F141B6562157DE3800DA187F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -378,6 +381,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F141B6562157DE3800DA187F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SDWebImage.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F1DC4402215604D100F12519 /* Sources */ = {
@@ -547,6 +574,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Resource",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = LittleLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -570,6 +598,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Resource",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = LittleLibrary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

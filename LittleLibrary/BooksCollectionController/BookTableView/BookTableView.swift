@@ -15,7 +15,11 @@ class BookTableView: UITableView {
     static let cellHeight: CGFloat = 195.0
   }
   
-  var books: [BooksViewModel] = [BooksViewModel(), BooksViewModel(), BooksViewModel()]
+  var books: [Book] = [] {
+    didSet {
+      reloadData()
+    }
+  }
   
   static let identifier: String = "BookTableCell"
   
@@ -53,6 +57,13 @@ extension BookTableView: UITableViewDelegate, UITableViewDataSource {
       fatalError("cell error")
     }
     bookCell.selectionStyle = .none
+    if books.count > indexPath.row {
+      let book = books[indexPath.row]
+      bookCell.author.text = "By " + book.author
+      bookCell.bookName.text = book.title
+      bookCell.rattingView.ratting = book.avageReview
+      bookCell.bookImage.sd_setImage(with: URL(string: book.pictureUrl), completed: nil)
+    }
     return bookCell
   }
   
@@ -110,6 +121,7 @@ extension BookTableView {
       rattingView.ratting = 3
       
       containerView.addSubview(viewDetailButton)
+      containerView.clipsToBounds = true
       viewDetailButton.layer.borderColor = UIColor.brandButtonBlue.cgColor
       viewDetailButton.layer.borderWidth = 1.0
       viewDetailButton.layer.cornerRadius = 5.0
@@ -131,10 +143,11 @@ extension BookTableView {
         
         bookName.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 28.0),
         bookName.leftAnchor.constraint(equalTo: bookImage.rightAnchor, constant: 30.0),
-        bookName.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+        bookName.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -5.0),
         
         author.topAnchor.constraint(equalTo: bookName.bottomAnchor, constant: 10.0),
         author.leftAnchor.constraint(equalTo: bookName.leftAnchor),
+        author.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -5.0),
         
         rattingView.topAnchor.constraint(equalTo: author.bottomAnchor, constant: 15.0),
         rattingView.leftAnchor.constraint(equalTo: bookName.leftAnchor),

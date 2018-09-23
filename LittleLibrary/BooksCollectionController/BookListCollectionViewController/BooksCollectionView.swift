@@ -8,13 +8,7 @@
 
 import Foundation
 import UIKit
-
-struct BooksViewModel {
-  let name: String
-  init(name: String = "aaa") {
-    self.name = name
-  }
-}
+import SDWebImage
 
 class BooksCollectionView: UICollectionView {
   
@@ -22,7 +16,11 @@ class BooksCollectionView: UICollectionView {
     static let defaultHeight: CGFloat = 320.0
   }
   
-  var books: [BooksViewModel] = [BooksViewModel(),BooksViewModel(),BooksViewModel()]
+  var books: [Book] = [] {
+    didSet {
+      reloadData()
+    }
+  }
   
   static let cellIdentifier: String = "BookCell"
   
@@ -62,6 +60,13 @@ extension BooksCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
     
     let theCell = collectionView.dequeueReusableCell(withReuseIdentifier: BooksCollectionView.cellIdentifier, for: indexPath) as? BookCell
     if let cell = theCell {
+      if books.count > indexPath.row {
+        let book = books[indexPath.row]
+        cell.imageView.sd_setImage(with: URL(string: book.pictureUrl), completed: nil)
+        cell.author.text = "By " + book.author
+        cell.bookName.text = book.title
+        cell.ratting.ratting = book.avageReview
+      }
       return cell
     }
     fatalError("cell no exist")

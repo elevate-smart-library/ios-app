@@ -22,7 +22,7 @@ class BookSearchResultController: UIViewController {
   
   let recommandation = UIStackView()
   
-  var books: [BooksViewModel] = [] {
+  var books: [Book] = [] {
     
     didSet {
       bookTable.books = books

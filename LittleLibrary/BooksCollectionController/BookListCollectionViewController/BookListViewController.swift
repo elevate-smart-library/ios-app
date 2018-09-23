@@ -86,6 +86,13 @@ class BookListViewController: UIViewController {
       contentSize.height =  library.frame.maxY
     }
     
+    var additionalInsetBot: CGFloat = 49.0 + 10.0
+    
+    if let saftInset = UIApplication.shared.delegate?.window??.safeAreaInsets {
+      additionalInsetBot += saftInset.bottom
+    }
+    let minimumHeight = UIScreen.main.bounds.height - topHeight - additionalInsetBot
+    contentSize.height = max(contentSize.height, minimumHeight)
     scrollView.contentSize = contentSize
     background.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: contentSize.height + 1000.0)
   }
@@ -189,6 +196,16 @@ class LibraryInfos: UIView {
   let bookAvailable = UILabel()
   let address = UILabel()
   
+  var seletedLibAndBooks: (lib: Library, books: [Book])? {
+    didSet {
+      if let lib = seletedLibAndBooks?.lib, let books = seletedLibAndBooks?.books {
+        bookAvailable.text = "\(books.count) Books Available"
+        address.text = lib.location.address
+        bookTable.books = books
+      }
+    }
+  }
+  
   init() {
     super.init(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 0.0))
     
@@ -231,6 +248,13 @@ class LibraryInfos: UIView {
 }
 
 class BooksCommonInfos: UIView {
+  
+  var books: [Book] = [] {
+    didSet {
+      justAddBooks.books = books
+      recommandBooks.books = books
+    }
+  }
   
   let bookType = BookTypeSelection()
   

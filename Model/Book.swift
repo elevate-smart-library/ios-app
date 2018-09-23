@@ -64,6 +64,20 @@ struct Book: Codable{
   let reviews: [Reviews]
   let library: Library?
   let summary: String
+  
+  
+  var avageReview: Int {
+    if reviews.isEmpty {
+      return 3
+    }
+    var a = 0
+    reviews.forEach { r in
+      a += r.note
+    }
+    
+    return Int(a/reviews.count)
+  }
+  
 }
 
 extension Book {
