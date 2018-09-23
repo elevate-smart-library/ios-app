@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
   let bookList = BookListViewController()
   let locationManager = CLLocationManager()
   
+  let searchList = BookSearchResultController()
+  
   var libraries: [Library] = [] {
     didSet {
       let annotations = libraries.compactMap { library -> LibraryAnnotation in
@@ -31,11 +33,22 @@ class MainViewController: UIViewController {
     }
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    bookList.topHeight = navigationBar.frame.maxY
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    addChild(bookList)
+    addChild(searchList)
+    
     view.addSubview(bookList.view)
     view.addSubview(navigationBar)
+    
+    searchList.view.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(searchList.view)
     
     bookList.view.pinToSuperView()
     
@@ -53,10 +66,19 @@ class MainViewController: UIViewController {
     mapView.showsUserLocation = true
     
     navigationBar.translatesAutoresizingMaskIntoConstraints = false
+    let navSize = navigationBar.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+    let height = navSize.height + (view.safeAreaInsets.top == 0 ? 20.0 : view.safeAreaInsets.top)
+    
     NSLayoutConstraint.activate([
       navigationBar.topAnchor.constraint(equalTo: view.topAnchor),
       navigationBar.leftAnchor.constraint(equalTo: view.leftAnchor),
-      navigationBar.rightAnchor.constraint(equalTo: view.rightAnchor)
+      navigationBar.rightAnchor.constraint(equalTo: view.rightAnchor),
+      navigationBar.heightAnchor.constraint(equalToConstant: height),
+      
+      searchList.view.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+      searchList.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      searchList.view.rightAnchor.constraint(equalTo: view.rightAnchor),
+      searchList.view.leftAnchor.constraint(equalTo: view.leftAnchor)
     ])
     
     

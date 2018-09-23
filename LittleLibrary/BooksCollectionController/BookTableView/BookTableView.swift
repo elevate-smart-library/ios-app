@@ -72,10 +72,15 @@ extension BookTableView {
     let bookName = UILabel()
     let author = UILabel()
     
+    let viewDetailButton = UIButton()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
       super.init(style: style, reuseIdentifier: reuseIdentifier)
       
+      backgroundColor = .clear
       contentView.addSubview(containerView)
+      contentView.backgroundColor = .clear
+      containerView.backgroundColor = .clear
       
       containerView.translatesAutoresizingMaskIntoConstraints = false
       containerView.backgroundColor = .brandBookGrey
@@ -103,7 +108,14 @@ extension BookTableView {
       
       rattingView.ratting = 3
       
-      
+      containerView.addSubview(viewDetailButton)
+      viewDetailButton.layer.borderColor = UIColor.brandButtonBlue.cgColor
+      viewDetailButton.layer.borderWidth = 1.0
+      viewDetailButton.layer.cornerRadius = 5.0
+      viewDetailButton.setTitle("View Details", for: .normal)
+      viewDetailButton.titleLabel?.font = UIFont.brandFont(ofSize: 14.0, weight: .semibold)
+      viewDetailButton.setTitleColor(UIColor.brandButtonBlue, for: .normal)
+      viewDetailButton.translatesAutoresizingMaskIntoConstraints = false
       
       NSLayoutConstraint.activate([
         containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5.0),
@@ -127,8 +139,11 @@ extension BookTableView {
         rattingView.leftAnchor.constraint(equalTo: bookName.leftAnchor),
         rattingView.widthAnchor.constraint(equalToConstant: 100.0),
         rattingView.heightAnchor.constraint(equalToConstant: 20.0),
-
         
+        viewDetailButton.leftAnchor.constraint(equalTo: author.leftAnchor),
+        viewDetailButton.widthAnchor.constraint(equalToConstant: 114.0),
+        viewDetailButton.heightAnchor.constraint(equalToConstant: 34.0),
+        viewDetailButton.bottomAnchor.constraint(equalTo: bookImage.bottomAnchor)
       ])
       
     }

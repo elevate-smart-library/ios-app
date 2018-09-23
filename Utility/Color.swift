@@ -48,6 +48,9 @@ public extension UIColor {
   //F8F8F8
   public static let brandBookGrey = UIColor(hex: 0xF8F8F8)
 
+  //1E5288
+  public static let brandButtonBlue = UIColor(hex: 0x1E5288)
+
   /**
    Get transit color between two color, with progress
    

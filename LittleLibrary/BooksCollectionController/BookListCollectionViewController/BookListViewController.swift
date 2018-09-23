@@ -23,8 +23,11 @@ class BookListViewController: UIViewController {
   
   let library = LibraryInfos()
   
+  var topHeight: CGFloat = 0.0
+  
   var status: ViewStatus = ViewStatus.books {
     didSet {
+      
       UIView.animate(withDuration: 0.3) {
         self.commonBookInfo.alpha = (self.status != .books) ? 0.0 : 1.0
         self.library.alpha = (self.status != .library) ? 0.0 : 1.0
@@ -84,40 +87,33 @@ class BookListViewController: UIViewController {
 
 extension BookListViewController: UIScrollViewDelegate {
   
+  func checkoutRollToDestination() {
+    let topH = self.topHeight - 20.0
+    let middleValue = (scrollView.contentInset.top - topH) / 2.0
+    var offset = scrollView.contentOffset
+    if offset.y < -topH && abs(offset.y + topH) < middleValue {
+      offset.y = -topH
+      UIView.animate(withDuration: 0.3) {
+        self.scrollView.contentOffset = offset
+      }
+    } else if offset.y < -topH {
+      offset.y = -scrollView.contentInset.top
+      UIView.animate(withDuration: 0.3) {
+        self.scrollView.contentOffset = offset
+      }
+    }
+  }
+  
   func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
     if !decelerate {
-      let middleValue = (scrollView.contentInset.top - 123.0) / 2.0
-      var offset = scrollView.contentOffset
-      if offset.y < -123.0 && abs(offset.y + 123.0) < middleValue {
-        offset.y = -123.0
-        UIView.animate(withDuration: 0.3) {
-          scrollView.contentOffset = offset
-        }
-      } else if offset.y < -123.0 {
-        offset.y = -scrollView.contentInset.top
-        UIView.animate(withDuration: 0.3) {
-          scrollView.contentOffset = offset
-        }
-      }
+      checkoutRollToDestination()
     }
   }
   
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
     
     if !scrollView.isDragging {
-      let middleValue = (scrollView.contentInset.top - 123.0) / 2.0
-      var offset = scrollView.contentOffset
-      if offset.y < -123.0 && abs(offset.y + 123.0) < middleValue {
-        offset.y = -123.0
-        UIView.animate(withDuration: 0.3) {
-          scrollView.contentOffset = offset
-        }
-      } else if offset.y < -123.0 {
-        offset.y = -scrollView.contentInset.top
-        UIView.animate(withDuration: 0.3) {
-          scrollView.contentOffset = offset
-        }
-      }
+      checkoutRollToDestination()
     }
   }
   

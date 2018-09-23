@@ -12,6 +12,7 @@
 		F158AE5221570367005C3CE8 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE5121570367005C3CE8 /* Library.swift */; };
 		F158AE5421570604005C3CE8 /* LLService+Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE5321570604005C3CE8 /* LLService+Library.swift */; };
 		F158AE5621571BD4005C3CE8 /* BookTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE5521571BD4005C3CE8 /* BookTableView.swift */; };
+		F158AE5A2157585A005C3CE8 /* BookSearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE592157585A005C3CE8 /* BookSearchResultController.swift */; };
 		F1A00CC52156895C00F11089 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CC42156895C00F11089 /* Color.swift */; };
 		F1A00CC7215689C200F11089 /* SearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CC6215689C200F11089 /* SearchNavigationBar.swift */; };
 		F1A00CC92156968800F11089 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A00CC82156968800F11089 /* MapKit.framework */; };
@@ -70,6 +71,7 @@
 		F158AE5121570367005C3CE8 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		F158AE5321570604005C3CE8 /* LLService+Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LLService+Library.swift"; sourceTree = "<group>"; };
 		F158AE5521571BD4005C3CE8 /* BookTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableView.swift; sourceTree = "<group>"; };
+		F158AE592157585A005C3CE8 /* BookSearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchResultController.swift; sourceTree = "<group>"; };
 		F1A00CC42156895C00F11089 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F1A00CC6215689C200F11089 /* SearchNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigationBar.swift; sourceTree = "<group>"; };
 		F1A00CC82156968800F11089 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -138,6 +140,14 @@
 			path = BookTableView;
 			sourceTree = "<group>";
 		};
+		F158AE5821575844005C3CE8 /* BookSearchController */ = {
+			isa = PBXGroup;
+			children = (
+				F158AE592157585A005C3CE8 /* BookSearchResultController.swift */,
+			);
+			path = BookSearchController;
+			sourceTree = "<group>";
+		};
 		F1A00CCB21569AA700F11089 /* BooksCollectionController */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +193,7 @@
 		F1DC4408215604D100F12519 /* LittleLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				F158AE5821575844005C3CE8 /* BookSearchController */,
 				F1A00CCB21569AA700F11089 /* BooksCollectionController */,
 				F1DC441E2156085100F12519 /* MainViewController */,
 				F1DC4409215604D100F12519 /* AppDelegate.swift */,
@@ -387,6 +398,7 @@
 				F1DC441D2156070300F12519 /* User.swift in Sources */,
 				F158AE5221570367005C3CE8 /* Library.swift in Sources */,
 				F1DC44232156087E00F12519 /* MainViewController.swift in Sources */,
+				F158AE5A2157585A005C3CE8 /* BookSearchResultController.swift in Sources */,
 				F1A00CC52156895C00F11089 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
