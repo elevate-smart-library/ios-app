@@ -53,6 +53,7 @@ class BookListViewController: UIViewController {
     
     scrollView.showsVerticalScrollIndicator = false
     
+    scrollView.contentInsetAdjustmentBehavior = .never
     background.backgroundColor = .white
     background.layer.cornerRadius = 25.0
     
@@ -91,15 +92,20 @@ extension BookListViewController: UIScrollViewDelegate {
     let topH = self.topHeight - 20.0
     let middleValue = (scrollView.contentInset.top - topH) / 2.0
     var offset = scrollView.contentOffset
-    if offset.y < -topH && abs(offset.y + topH) < middleValue {
-      offset.y = -topH
-      UIView.animate(withDuration: 0.3) {
-        self.scrollView.contentOffset = offset
-      }
-    } else if offset.y < -topH {
-      offset.y = -scrollView.contentInset.top
-      UIView.animate(withDuration: 0.3) {
-        self.scrollView.contentOffset = offset
+    
+    //print("A... \(offset.y) .... b\(-scrollView.contentInset.top)")
+    
+    if offset.y < -topH {
+      if abs(offset.y + topH) < middleValue {
+        offset.y = -topH
+        UIView.animate(withDuration: 0.3) {
+          self.scrollView.contentOffset = offset
+        }
+      } else if offset.y >= -scrollView.contentInset.top {
+        offset.y = -scrollView.contentInset.top
+        UIView.animate(withDuration: 0.3) {
+          self.scrollView.contentOffset = offset
+        }
       }
     }
   }

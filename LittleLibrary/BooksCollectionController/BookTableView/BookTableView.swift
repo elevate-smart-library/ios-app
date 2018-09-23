@@ -27,6 +27,7 @@ class BookTableView: UITableView {
     self.dataSource = self
     
     separatorColor = .clear
+    isScrollEnabled = false
   }
   
   

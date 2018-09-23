@@ -48,6 +48,7 @@ class BookSearchResultController: UIViewController {
     view.addSubview(bookTable)
     bookTable.pinToSuperView()
     bookTable.backgroundColor = .clear
+    bookTable.isScrollEnabled = true
     
     view.backgroundColor = UIColor.brandBlue
     
