@@ -16,4 +16,9 @@ extension LLService {
     request(endPoint: endPoint)
   }
   
+  func getBooks(completeion: @escaping (Result<[Book]>) -> Void) {
+    let endPoint = EndPoint<[Book]>(urlPath: "api/v1/books", method: .get, paramters: [:], completion: completeion)
+    request(endPoint: endPoint)
+  }
+  
 }

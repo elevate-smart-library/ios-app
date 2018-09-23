@@ -34,6 +34,8 @@ class MainViewController: UIViewController {
     }
   }
   
+  var books: [Book] = []
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     bookList.topHeight = navigationBar.frame.maxY
@@ -107,6 +109,15 @@ class MainViewController: UIViewController {
       switch result {
       case .success(let libraries) :
         self?.libraries = libraries
+      case .fail(let error):
+        debugPrint("\(error)")
+      }
+    }
+    
+    LLService.shared.getBooks { [weak self] result in
+      switch result {
+      case .success(let books):
+        self?.books = books
       case .fail(let error):
         debugPrint("\(error)")
       }
