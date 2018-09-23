@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F158AE4D2156F494005C3CE8 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE4C2156F494005C3CE8 /* ScrollView.swift */; };
+		F158AE502156FBF8005C3CE8 /* LibraryAnnotaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE4F2156FBF8005C3CE8 /* LibraryAnnotaion.swift */; };
+		F158AE5221570367005C3CE8 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE5121570367005C3CE8 /* Library.swift */; };
+		F158AE5421570604005C3CE8 /* LLService+Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE5321570604005C3CE8 /* LLService+Library.swift */; };
 		F1A00CC52156895C00F11089 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CC42156895C00F11089 /* Color.swift */; };
 		F1A00CC7215689C200F11089 /* SearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CC6215689C200F11089 /* SearchNavigationBar.swift */; };
 		F1A00CC92156968800F11089 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A00CC82156968800F11089 /* MapKit.framework */; };
@@ -62,6 +65,9 @@
 
 /* Begin PBXFileReference section */
 		F158AE4C2156F494005C3CE8 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
+		F158AE4F2156FBF8005C3CE8 /* LibraryAnnotaion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAnnotaion.swift; sourceTree = "<group>"; };
+		F158AE5121570367005C3CE8 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		F158AE5321570604005C3CE8 /* LLService+Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LLService+Library.swift"; sourceTree = "<group>"; };
 		F1A00CC42156895C00F11089 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F1A00CC6215689C200F11089 /* SearchNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigationBar.swift; sourceTree = "<group>"; };
 		F1A00CC82156968800F11089 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -114,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F158AE4E2156FBD1005C3CE8 /* MapAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				F158AE4F2156FBF8005C3CE8 /* LibraryAnnotaion.swift */,
+			);
+			path = MapAnnotation;
+			sourceTree = "<group>";
+		};
 		F1A00CCB21569AA700F11089 /* BooksCollectionController */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +189,7 @@
 				F1DC441C2156070300F12519 /* User.swift */,
 				F1DC4431215677D900F12519 /* Book.swift */,
 				F1A00CDB2156BB4C00F11089 /* UIView.swift */,
+				F158AE5121570367005C3CE8 /* Library.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +197,7 @@
 		F1DC441E2156085100F12519 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F158AE4E2156FBD1005C3CE8 /* MapAnnotation */,
 				F1DC44212156087E00F12519 /* MainViewController.swift */,
 				F1DC44222156087E00F12519 /* MainViewController.xib */,
 				F1A00CC6215689C200F11089 /* SearchNavigationBar.swift */,
@@ -194,6 +210,7 @@
 			children = (
 				F1DC442C2156184E00F12519 /* LLService.swift */,
 				F1DC443321567D2700F12519 /* LLService+Test.swift */,
+				F158AE5321570604005C3CE8 /* LLService+Library.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -344,6 +361,8 @@
 			files = (
 				F1DC440C215604D100F12519 /* ViewController.swift in Sources */,
 				F158AE4D2156F494005C3CE8 /* ScrollView.swift in Sources */,
+				F158AE5421570604005C3CE8 /* LLService+Library.swift in Sources */,
+				F158AE502156FBF8005C3CE8 /* LibraryAnnotaion.swift in Sources */,
 				F1A00CDA2156B5A200F11089 /* BooksCollectionView.swift in Sources */,
 				F1DC443421567D2700F12519 /* LLService+Test.swift in Sources */,
 				F1DC442D2156184E00F12519 /* LLService.swift in Sources */,
@@ -354,6 +373,7 @@
 				F1DC440A215604D100F12519 /* AppDelegate.swift in Sources */,
 				F1A00CDC2156BB4C00F11089 /* UIView.swift in Sources */,
 				F1DC441D2156070300F12519 /* User.swift in Sources */,
+				F158AE5221570367005C3CE8 /* Library.swift in Sources */,
 				F1DC44232156087E00F12519 /* MainViewController.swift in Sources */,
 				F1A00CC52156895C00F11089 /* Color.swift in Sources */,
 			);

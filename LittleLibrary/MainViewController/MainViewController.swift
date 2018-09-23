@@ -14,8 +14,20 @@ class MainViewController: UIViewController {
   @IBOutlet var navigationBar: SearchNavigationBar!
   @IBOutlet var mapView: MKMapView!
   
+  static let identifier = "LibraryPin"
+  
   let bookList = BookListViewController()
   let locationManager = CLLocationManager()
+  
+  var libraries: [Library] = [] {
+    didSet {
+      let annotations = libraries.compactMap { library -> LibraryAnnotation in
+        let notation = LibraryAnnotation(with: library)
+        return notation
+      }
+      mapView.addAnnotations(annotations)
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,10 +57,54 @@ class MainViewController: UIViewController {
       navigationBar.rightAnchor.constraint(equalTo: view.rightAnchor)
     ])
     
+    
+    LLService.shared.getLibrary { [weak self] result in
+      switch result {
+      case .success(let libraries) :
+        self?.libraries = libraries
+      case .fail(let error):
+        debugPrint("\(error)")
+      }
+    }
+    
   }
 }
 
 extension MainViewController: MKMapViewDelegate {
+  
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    let reuseIdentifier = "pin"
+    var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+    if annotationView == nil {
+      annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+      annotationView?.canShowCallout = true
+    } else {
+      annotationView?.annotation = annotation
+    }
+    
+    if ((annotation as? MKUserLocation) != nil) {
+      return annotationView
+    }
+    
+    if let customPointAnnotation = annotation as? LibraryAnnotation {
+      annotationView?.image = (annotationView?.isSelected ?? false) ? customPointAnnotation.selectedImage : customPointAnnotation.annotationImage
+    }
+    
+    return annotationView
+  }
+  
+  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    if let libraryNote = view.annotation as? LibraryAnnotation {
+      view.image = libraryNote.selectedImage
+      
+    }
+  }
+  
+  func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+    if let libraryNote = view.annotation as? LibraryAnnotation {
+      view.image = libraryNote.annotationImage
+    }
+  }
   
 }
 

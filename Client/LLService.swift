@@ -20,16 +20,15 @@ struct CommonResponse: Codable {
 
 class LLService {
   
-  private let apiString = "http://0.0.0.0:8001/api/pizzachatbot/testMessage"
-  
   private let baseURL: String
   
   static let shared = LLService()
   
-  init(baseURL: String = "http://0.0.0.0:8001") {
+  init(baseURL: String = "https://elevate-smart-library.appspot.com/") {
     self.baseURL = baseURL
   }
   
+  @discardableResult
   func request<T>(endPoint: EndPoint<T>) -> URLRequest? {
     let request = Alamofire.request(endPoint.url, method: endPoint.method, parameters: endPoint.parameters)
     request.validate().responseJSON { response in
@@ -50,6 +49,8 @@ class LLService {
   }
 }
 
+let baseURL = "https://elevate-smart-library.appspot.com/"
+
 struct EndPoint<T: Codable> {
   
   let url: URL
@@ -57,9 +58,8 @@ struct EndPoint<T: Codable> {
   let parameters: [String: Any]?
   let completion: (Result<T>) -> Void
   
-  
   init(urlPath: String, method: HTTPMethod, paramters: [String: Any], completion: @escaping (Result<T>) -> Void) {
-    guard let url = URL(string: urlPath) else {
+    guard let url = URL(string: baseURL + urlPath) else {
       fatalError("url unvalid")
     }
     self.url = url
