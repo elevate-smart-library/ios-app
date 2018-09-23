@@ -41,8 +41,13 @@ public extension UIColor {
   public static let brandChildBlue = UIColor(hex: 0x68C4D4)
 
   public static let brandGreyColor = UIColor(hex: 0xEDEDED)
-
   
+  public static let brandBookOrange = UIColor(hex: 0xF77221)
+  public static let brandAddressGrey = UIColor(hex: 0x7B768C)
+  
+  //F8F8F8
+  public static let brandBookGrey = UIColor(hex: 0xF8F8F8)
+
   /**
    Get transit color between two color, with progress
    

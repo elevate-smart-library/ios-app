@@ -8,22 +8,36 @@
 
 import UIKit
 
+enum ViewStatus {
+  case library
+  case books
+}
+
 class BookListViewController: UIViewController {
 
   @IBOutlet var scrollView: UIScrollView!
   
   let background = BackgroundView()
   
-  let bookType = BookTypeSelection()
+  let commonBookInfo = BooksCommonInfos()
   
-  let justAddHeader = BookListHeader()
-  let justAddBooks = BooksCollectionView()
+  let library = LibraryInfos()
   
-  let recommandHeader = BookListHeader()
-  let recommandBooks = BooksCollectionView()
+  var status: ViewStatus = ViewStatus.books {
+    didSet {
+      UIView.animate(withDuration: 0.3) {
+        self.commonBookInfo.alpha = (self.status != .books) ? 0.0 : 1.0
+        self.library.alpha = (self.status != .library) ? 0.0 : 1.0
+      }
+      
+      view.setNeedsLayout()
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    status = .books
     
     if let touchView = view as? TouchThrowView {
       touchView.shouldReactorToHit = { point, view in
@@ -42,35 +56,27 @@ class BookListViewController: UIViewController {
     scrollView.addSubview(background)
     scrollView.delegate = self
     
-    bookType.frame = CGRect(x: 16.0, y: 30.0, width: view.frame.width - 16.0 * 2.0, height: BookTypeSelection.Design.defaultHeight)
-    
-    justAddHeader.frame = CGRect(x: 0.0, y: bookType.frame.maxY, width: view.frame.width, height: BookListHeader.Design.height)
-    justAddHeader.title.text = "Just Add"
-    justAddBooks.frame = CGRect(x: 0.0, y: justAddHeader.frame.maxY, width: view.frame.width, height: BooksCollectionView.Design.defaultHeight)
-    
-    recommandHeader.frame = CGRect(x: 0.0, y: justAddBooks.frame.maxY, width: view.frame.width, height: BookListHeader.Design.height)
-    recommandHeader.title.text = "Recommanded"
-    recommandBooks.frame = CGRect(x: 0.0, y: recommandHeader.frame.maxY, width: view.frame.width, height: BooksCollectionView.Design.defaultHeight)
-
-    
-    scrollView.addSubview(bookType)
-    
-    scrollView.addSubview(justAddHeader)
-    scrollView.addSubview(justAddBooks)
-    
-    scrollView.addSubview(recommandHeader)
-    scrollView.addSubview(recommandBooks)
+    scrollView.addSubview(commonBookInfo)
+    scrollView.addSubview(library)
     
     scrollView.contentInset = UIEdgeInsets(top: 450.0, left: 0.0, bottom: 0.0, right: 0.0)
   }
   
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
+    commonBookInfo.frame = CGRect(x: 0.0, y: 30.0, width: view.frame.width, height: commonBookInfo.maxHeight)
+    library.frame = CGRect(x: 0.0, y: 30.0, width: view.frame.width, height: library.maxHeight)
+    
     var contentSize = scrollView.contentSize
     contentSize.width = view.frame.width
-    contentSize.height = recommandBooks.frame.maxY
-    scrollView.contentSize = contentSize
+    switch status {
+    case .books:
+      contentSize.height =  commonBookInfo.frame.maxY
+    case .library:
+      contentSize.height =  library.frame.maxY
+    }
     
+    scrollView.contentSize = contentSize
     background.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: contentSize.height + 1000.0)
   }
 
@@ -166,6 +172,102 @@ class BookListHeader: UIView {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+}
+
+class LibraryInfos: UIView {
+  
+  let bookTable = BookTableView()
+  
+  let bookAvailable = UILabel()
+  let address = UILabel()
+  
+  init() {
+    super.init(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 0.0))
+    
+    bookAvailable.font = UIFont.brandFont(ofSize: 17.0, weight: .bold)
+    bookAvailable.textColor = UIColor.brandBookOrange
+    bookAvailable.textAlignment = .center
+    bookAvailable.text = "12 Books Available"
+    
+    address.font = UIFont.brandFont(ofSize: 14.0, weight: .semibold)
+    address.textColor = UIColor.brandAddressGrey
+    address.textAlignment = .center
+    address.text = "473 Adelaide St W Toronto, ON M5V 1T1"
+
+    addSubview(bookAvailable)
+    addSubview(address)
+    
+    bookAvailable.frame = CGRect(x: 0.0, y: 0.0, width: frame.width, height: 22.0)
+    address.frame = CGRect(x: 0.0, y: bookAvailable.frame.maxY + 4.0, width: frame.width, height: 22.0)
+    
+    addSubview(bookTable)
+    bookTable.frame = CGRect(x: 0.0, y: address.frame.maxY + 10.0, width: frame.width, height: 100.0)
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    var tableFrame = bookTable.frame
+    tableFrame.size.height = bookTable.maxHeight
+    bookTable.frame = tableFrame
+  }
+  
+  var maxHeight: CGFloat {
+    return address.frame.maxY + bookTable.maxHeight + 20.0
+  }
+  
+  @available(*, unavailable)
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+}
+
+class BooksCommonInfos: UIView {
+  
+  let bookType = BookTypeSelection()
+  
+  let justAddHeader = BookListHeader()
+  let justAddBooks = BooksCollectionView()
+  
+  let recommandHeader = BookListHeader()
+  let recommandBooks = BooksCollectionView()
+  
+  init() {
+    super.init(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 0.0))
+    
+    addSubview(bookType)
+    
+    addSubview(justAddHeader)
+    addSubview(justAddBooks)
+    
+    addSubview(recommandHeader)
+    addSubview(recommandBooks)
+    
+    bookType.frame = CGRect(x: 16.0, y: 0.0, width: frame.width - 16.0 * 2.0, height: BookTypeSelection.Design.defaultHeight)
+    
+    justAddHeader.frame = CGRect(x: 0.0, y: bookType.frame.maxY, width: frame.width, height: BookListHeader.Design.height)
+    justAddHeader.title.text = "Just Add"
+    justAddBooks.frame = CGRect(x: 0.0, y: justAddHeader.frame.maxY, width: frame.width, height: BooksCollectionView.Design.defaultHeight)
+    
+    recommandHeader.frame = CGRect(x: 0.0, y: justAddBooks.frame.maxY, width: frame.width, height: BookListHeader.Design.height)
+    recommandHeader.title.text = "Recommanded"
+    recommandBooks.frame = CGRect(x: 0.0, y: recommandHeader.frame.maxY, width: frame.width, height: BooksCollectionView.Design.defaultHeight)
+  }
+  
+  @available(*, unavailable)
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+  }
+  
+  var maxHeight:CGFloat {
+    return recommandBooks.frame.maxY
+  }
+  
 }
 
 class BackgroundView: UIView {

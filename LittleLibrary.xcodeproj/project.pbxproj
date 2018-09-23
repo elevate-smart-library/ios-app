@@ -11,6 +11,7 @@
 		F158AE502156FBF8005C3CE8 /* LibraryAnnotaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE4F2156FBF8005C3CE8 /* LibraryAnnotaion.swift */; };
 		F158AE5221570367005C3CE8 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE5121570367005C3CE8 /* Library.swift */; };
 		F158AE5421570604005C3CE8 /* LLService+Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE5321570604005C3CE8 /* LLService+Library.swift */; };
+		F158AE5621571BD4005C3CE8 /* BookTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE5521571BD4005C3CE8 /* BookTableView.swift */; };
 		F1A00CC52156895C00F11089 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CC42156895C00F11089 /* Color.swift */; };
 		F1A00CC7215689C200F11089 /* SearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A00CC6215689C200F11089 /* SearchNavigationBar.swift */; };
 		F1A00CC92156968800F11089 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A00CC82156968800F11089 /* MapKit.framework */; };
@@ -68,6 +69,7 @@
 		F158AE4F2156FBF8005C3CE8 /* LibraryAnnotaion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAnnotaion.swift; sourceTree = "<group>"; };
 		F158AE5121570367005C3CE8 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		F158AE5321570604005C3CE8 /* LLService+Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LLService+Library.swift"; sourceTree = "<group>"; };
+		F158AE5521571BD4005C3CE8 /* BookTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableView.swift; sourceTree = "<group>"; };
 		F1A00CC42156895C00F11089 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F1A00CC6215689C200F11089 /* SearchNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigationBar.swift; sourceTree = "<group>"; };
 		F1A00CC82156968800F11089 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -128,9 +130,18 @@
 			path = MapAnnotation;
 			sourceTree = "<group>";
 		};
+		F158AE5721571BD8005C3CE8 /* BookTableView */ = {
+			isa = PBXGroup;
+			children = (
+				F158AE5521571BD4005C3CE8 /* BookTableView.swift */,
+			);
+			path = BookTableView;
+			sourceTree = "<group>";
+		};
 		F1A00CCB21569AA700F11089 /* BooksCollectionController */ = {
 			isa = PBXGroup;
 			children = (
+				F158AE5721571BD8005C3CE8 /* BookTableView */,
 				F1A00CD02156B46100F11089 /* BookListCollectionViewController */,
 			);
 			path = BooksCollectionController;
@@ -363,6 +374,7 @@
 				F158AE4D2156F494005C3CE8 /* ScrollView.swift in Sources */,
 				F158AE5421570604005C3CE8 /* LLService+Library.swift in Sources */,
 				F158AE502156FBF8005C3CE8 /* LibraryAnnotaion.swift in Sources */,
+				F158AE5621571BD4005C3CE8 /* BookTableView.swift in Sources */,
 				F1A00CDA2156B5A200F11089 /* BooksCollectionView.swift in Sources */,
 				F1DC443421567D2700F12519 /* LLService+Test.swift in Sources */,
 				F1DC442D2156184E00F12519 /* LLService.swift in Sources */,

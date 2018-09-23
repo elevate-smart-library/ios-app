@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
   
   static let identifier = "LibraryPin"
   
+  var selectedAnnotation: LibraryAnnotation?
+  
   let bookList = BookListViewController()
   let locationManager = CLLocationManager()
   
@@ -96,13 +98,27 @@ extension MainViewController: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
     if let libraryNote = view.annotation as? LibraryAnnotation {
       view.image = libraryNote.selectedImage
-      
+      selectedAnnotation = libraryNote
+      self.perform(#selector(updateView), with: nil, afterDelay: 0.3)
     }
   }
   
   func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
     if let libraryNote = view.annotation as? LibraryAnnotation {
       view.image = libraryNote.annotationImage
+      if selectedAnnotation == libraryNote {
+        selectedAnnotation = nil
+      }
+      self.perform(#selector(updateView), with: nil, afterDelay: 0.3)
+    }
+  }
+  
+  @objc
+  func updateView() {
+    if selectedAnnotation == nil {
+      bookList.status = .books
+    } else {
+      bookList.status = .library
     }
   }
   

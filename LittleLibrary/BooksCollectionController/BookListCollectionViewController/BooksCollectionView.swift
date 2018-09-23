@@ -132,48 +132,45 @@ class BookCell: UICollectionViewCell {
   }
 }
 
-extension BookCell {
+class Ratting: UIStackView {
   
-  class Ratting: UIStackView {
-    
-    let stars: [UIImageView] = [
-      UIImageView(),
-      UIImageView(),
-      UIImageView(),
-      UIImageView(),
-      UIImageView()
-    ]
-    
-    // Ratting 0 - 5
-    var ratting: Int = 0 {
-      didSet {
-        for (index, image) in stars.enumerated() {
-          if index < ratting {
-            image.image = #imageLiteral(resourceName: "Yellow_Star")
-          } else {
-            image.image = #imageLiteral(resourceName: "Grey_Star")
-          }
+  let stars: [UIImageView] = [
+    UIImageView(),
+    UIImageView(),
+    UIImageView(),
+    UIImageView(),
+    UIImageView()
+  ]
+  
+  // Ratting 0 - 5
+  var ratting: Int = 0 {
+    didSet {
+      for (index, image) in stars.enumerated() {
+        if index < ratting {
+          image.image = #imageLiteral(resourceName: "Yellow_Star")
+        } else {
+          image.image = #imageLiteral(resourceName: "Grey_Star")
         }
       }
     }
+  }
+  
+  init() {
+    super.init(frame: CGRect.zero)
     
-    init() {
-      super.init(frame: CGRect.zero)
-      
-      alignment = .center
-      axis = .horizontal
-      distribution = .equalSpacing
-      
-      stars.forEach { imageView in
-        self.addArrangedSubview(imageView)
-      }
+    alignment = .center
+    axis = .horizontal
+    distribution = .equalSpacing
+    
+    stars.forEach { imageView in
+      self.addArrangedSubview(imageView)
     }
-    
-    
-    
-    @available(*, unavailable)
-    required init(coder: NSCoder) {
-      fatalError("init(coder:) has not been implemented")
-    }
+  }
+  
+  
+  
+  @available(*, unavailable)
+  required init(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
 }
