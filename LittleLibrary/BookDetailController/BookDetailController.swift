@@ -25,6 +25,10 @@ class BookDetailController: UIViewController {
   
   @IBOutlet var summury: UIView!
 
+  @IBOutlet var rattingContainer: UIView!
+  
+  let ratting = Ratting()
+  
   var book: Book?
   
   override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +38,7 @@ class BookDetailController: UIViewController {
       bookName.text = book.title
       bookAuthor.text = book.author
       addressLabel.text = book.library?.location.address ?? ""
+      ratting.ratting = book.avageReview
     }
   }
   
@@ -46,6 +51,11 @@ class BookDetailController: UIViewController {
     stackView.axis = .vertical
     stackView.alignment = .fill
     stackView.distribution = .equalSpacing
+    
+    rattingContainer.addSubview(ratting)
+    ratting.pinToSuperView()
+    
+    bookImage.addShadow(color: UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.16),  offSet: CGSize(width: 0.0, height: 7.0), radius: 9.0)
     
     stackView.addArrangedSubview(headerView)
     stackView.addArrangedSubview(address)

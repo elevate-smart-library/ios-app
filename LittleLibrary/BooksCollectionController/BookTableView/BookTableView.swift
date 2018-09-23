@@ -23,6 +23,8 @@ class BookTableView: UITableView {
   
   static let identifier: String = "BookTableCell"
   
+  var didSelectBook: ((Book) -> Void)?
+
   init() {
     super.init(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 0.0), style: UITableView.Style.plain)
     register(BookTableCell.self, forCellReuseIdentifier: BookTableView.identifier)
@@ -63,6 +65,10 @@ extension BookTableView: UITableViewDelegate, UITableViewDataSource {
       bookCell.bookName.text = book.title
       bookCell.rattingView.ratting = book.avageReview
       bookCell.bookImage.sd_setImage(with: URL(string: book.pictureUrl), completed: nil)
+      bookCell.currentBook = book
+    }
+    bookCell.viewDetail = { [weak self] book in
+      self?.didSelectBook?(book)
     }
     return bookCell
   }
@@ -85,6 +91,16 @@ extension BookTableView {
     let author = UILabel()
     
     let viewDetailButton = UIButton()
+    
+    var viewDetail: ((_ book: Book) -> Void)?
+    
+    var currentBook: Book? {
+      
+      didSet {
+        
+      }
+      
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
       super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -130,6 +146,8 @@ extension BookTableView {
       viewDetailButton.setTitleColor(UIColor.brandButtonBlue, for: .normal)
       viewDetailButton.translatesAutoresizingMaskIntoConstraints = false
       
+      viewDetailButton.addTarget(self, action: #selector(tapViewDetail), for: .touchUpInside)
+      
       NSLayoutConstraint.activate([
         containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5.0),
         containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5.0),
@@ -160,6 +178,13 @@ extension BookTableView {
         viewDetailButton.bottomAnchor.constraint(equalTo: bookImage.bottomAnchor)
       ])
       
+    }
+    
+    @objc
+    func tapViewDetail() {
+      if let book = currentBook {
+        viewDetail?(book)
+      }
     }
     
     @available(*, unavailable)

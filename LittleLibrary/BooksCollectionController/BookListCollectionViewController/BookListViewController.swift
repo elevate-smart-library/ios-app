@@ -75,6 +75,13 @@ class BookListViewController: UIViewController {
       self?.present(detail, animated: true, completion: nil)
     }
     
+    library.bookTable.didSelectBook = {
+      [weak self] book in
+      let detail = BookDetailController()
+      detail.book = book
+      self?.present(detail, animated: true, completion: nil)
+    }
+    
     scrollView.contentInset = UIEdgeInsets(top: 400.0, left: 0.0, bottom: additionalInsetBot, right: 0.0)
   }
   
