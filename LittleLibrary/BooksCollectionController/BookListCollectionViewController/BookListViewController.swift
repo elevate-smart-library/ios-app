@@ -69,6 +69,12 @@ class BookListViewController: UIViewController {
       additionalInsetBot += saftInset.bottom
     }
     
+    commonBookInfo.didSelectBook = { [weak self] book in
+      let detail = BookDetailController()
+      detail.book = book
+      self?.present(detail, animated: true, completion: nil)
+    }
+    
     scrollView.contentInset = UIEdgeInsets(top: 400.0, left: 0.0, bottom: additionalInsetBot, right: 0.0)
   }
   
@@ -256,6 +262,8 @@ class BooksCommonInfos: UIView {
     }
   }
   
+  var didSelectBook: ((Book) -> Void)?
+  
   let bookType = BookTypeSelection()
   
   let justAddHeader = BookListHeader()
@@ -266,6 +274,14 @@ class BooksCommonInfos: UIView {
   
   init() {
     super.init(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 0.0))
+    
+    recommandBooks.didSelectBook = { [weak self] book in
+      self?.didSelectBook?(book)
+    }
+    
+    justAddBooks.didSelectBook = { [weak self] book in
+      self?.didSelectBook?(book)
+    }
     
     addSubview(bookType)
     

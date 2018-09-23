@@ -22,6 +22,8 @@ class BooksCollectionView: UICollectionView {
     }
   }
   
+  var didSelectBook: ((Book) -> Void)?
+  
   static let cellIdentifier: String = "BookCell"
   
   init() {
@@ -70,6 +72,13 @@ extension BooksCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
       return cell
     }
     fatalError("cell no exist")
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    if books.count > indexPath.row {
+      let book = books[indexPath.row]
+      didSelectBook?(book)
+    }
   }
   
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F141B65C2157DF0F00DA187F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F141B65B2157DF0F00DA187F /* Alamofire.framework */; };
 		F141B65E2157DF1800DA187F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F141B65D2157DF1800DA187F /* SDWebImage.framework */; };
+		F141B6622157E73600DA187F /* BookDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F141B6602157E73600DA187F /* BookDetailController.swift */; };
+		F141B6632157E73600DA187F /* BookDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F141B6612157E73600DA187F /* BookDetailController.xib */; };
 		F158AE4D2156F494005C3CE8 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE4C2156F494005C3CE8 /* ScrollView.swift */; };
 		F158AE502156FBF8005C3CE8 /* LibraryAnnotaion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE4F2156FBF8005C3CE8 /* LibraryAnnotaion.swift */; };
 		F158AE5221570367005C3CE8 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158AE5121570367005C3CE8 /* Library.swift */; };
@@ -68,6 +70,8 @@
 /* Begin PBXFileReference section */
 		F141B65B2157DF0F00DA187F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		F141B65D2157DF1800DA187F /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		F141B6602157E73600DA187F /* BookDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailController.swift; sourceTree = "<group>"; };
+		F141B6612157E73600DA187F /* BookDetailController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookDetailController.xib; sourceTree = "<group>"; };
 		F158AE4C2156F494005C3CE8 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		F158AE4F2156FBF8005C3CE8 /* LibraryAnnotaion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAnnotaion.swift; sourceTree = "<group>"; };
 		F158AE5121570367005C3CE8 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
@@ -127,6 +131,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F141B65F2157E70C00DA187F /* BookDetailController */ = {
+			isa = PBXGroup;
+			children = (
+				F141B6602157E73600DA187F /* BookDetailController.swift */,
+				F141B6612157E73600DA187F /* BookDetailController.xib */,
+			);
+			path = BookDetailController;
+			sourceTree = "<group>";
+		};
 		F158AE4E2156FBD1005C3CE8 /* MapAnnotation */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +209,7 @@
 		F1DC4408215604D100F12519 /* LittleLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				F141B65F2157E70C00DA187F /* BookDetailController */,
 				F158AE5821575844005C3CE8 /* BookSearchController */,
 				F1A00CCB21569AA700F11089 /* BooksCollectionController */,
 				F1DC441E2156085100F12519 /* MainViewController */,
@@ -376,6 +390,7 @@
 				F1DC44242156087E00F12519 /* MainViewController.xib in Resources */,
 				F1A00CE22156C6C900F11089 /* Aileron-BoldItalic.ttf in Resources */,
 				F1A00CDF2156C6C900F11089 /* Aileron-Black.ttf in Resources */,
+				F141B6632157E73600DA187F /* BookDetailController.xib in Resources */,
 				F1A00CEE2156C6C900F11089 /* Aileron-UltraLightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1DC440C215604D100F12519 /* ViewController.swift in Sources */,
+				F141B6622157E73600DA187F /* BookDetailController.swift in Sources */,
 				F158AE4D2156F494005C3CE8 /* ScrollView.swift in Sources */,
 				F158AE5421570604005C3CE8 /* LLService+Library.swift in Sources */,
 				F158AE502156FBF8005C3CE8 /* LibraryAnnotaion.swift in Sources */,

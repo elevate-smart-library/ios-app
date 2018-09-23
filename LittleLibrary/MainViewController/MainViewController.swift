@@ -42,6 +42,12 @@ class MainViewController: UIViewController {
     
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+//    let detail = BookDetailController()
+//    present(detail, animated: true, completion: nil)
+  }
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     bookList.topHeight = navigationBar.frame.maxY

@@ -21,7 +21,6 @@ class LibraryAnnotation: MKPointAnnotation {
     self.library = lib
     super.init()
     coordinate = CLLocationCoordinate2D(latitude: library.location.lat, longitude: library.location.lng)
-
   }
   
 }
