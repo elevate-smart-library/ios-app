@@ -104,7 +104,7 @@ class BookListViewController: UIViewController {
     if let saftInset = UIApplication.shared.delegate?.window??.safeAreaInsets {
       additionalInsetBot += saftInset.bottom
     }
-    let minimumHeight = UIScreen.main.bounds.height - topHeight - additionalInsetBot
+    let minimumHeight = UIScreen.main.bounds.height - topHeight - additionalInsetBot + 30.0
     contentSize.height = max(contentSize.height, minimumHeight)
     scrollView.contentSize = contentSize
     background.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.width, height: contentSize.height + 1000.0)
